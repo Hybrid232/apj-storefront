@@ -1,11 +1,11 @@
-package edu.byui.apj.storefront.web.data;
+package edu.byui.apj.storefront.api.model.data;
 
 import com.opencsv.CSVReader;
-import edu.byui.apj.storefront.web.model.Card;
+import edu.byui.apj.storefront.api.model.model.Card;
+import jakarta.annotation.PostConstruct;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
 
-import jakarta.annotation.PostConstruct;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.math.BigDecimal;

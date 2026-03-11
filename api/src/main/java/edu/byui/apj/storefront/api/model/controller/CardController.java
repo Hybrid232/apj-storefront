@@ -1,7 +1,7 @@
-package edu.byui.apj.storefront.web.controller;
+package edu.byui.apj.storefront.api.model.controller;
 
-import edu.byui.apj.storefront.web.model.Card;
-import edu.byui.apj.storefront.web.service.CardService;
+import edu.byui.apj.storefront.api.model.model.Card;
+import edu.byui.apj.storefront.api.model.service.CardService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;

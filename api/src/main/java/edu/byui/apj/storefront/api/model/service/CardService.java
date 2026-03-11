@@ -1,7 +1,7 @@
-package edu.byui.apj.storefront.web.service;
+package edu.byui.apj.storefront.api.model.service;
 
-import edu.byui.apj.storefront.web.data.CsvCardRepository;
-import edu.byui.apj.storefront.web.model.Card;
+import edu.byui.apj.storefront.api.model.data.CsvCardRepository;
+import edu.byui.apj.storefront.api.model.model.Card;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

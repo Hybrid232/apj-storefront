@@ -1,7 +1,6 @@
 package edu.byui.apj.storefront.web;
 
 import edu.byui.apj.storefront.web.model.Card;
-import edu.byui.apj.storefront.web.service.CardService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
