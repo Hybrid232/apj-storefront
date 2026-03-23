@@ -3,8 +3,15 @@ package edu.byui.apj.storefront.db.service;
 import edu.byui.apj.storefront.db.controller.dto.CreateOrderRequest;
 import edu.byui.apj.storefront.db.model.*;
 import edu.byui.apj.storefront.db.repository.OrderRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import edu.byui.apj.storefront.db.controller.dto.OrderDetailsItemResponse;
+import edu.byui.apj.storefront.db.controller.dto.OrderDetailsResponse;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
 
 import java.time.Instant;
 
@@ -62,5 +69,26 @@ public class OrderService {
     public Order getOrder(Long orderId) {
         return orderRepository.findById(orderId)
                 .orElseThrow(() -> new RuntimeException("Order not found"));
+    }
+
+    @Transactional(readOnly = true)
+    public OrderDetailsResponse getOrderDetails(Long orderId) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new RuntimeException("Order not found"));
+        order.getItems().size();
+        List<OrderDetailsItemResponse> items = order.getItems().stream()
+                .map(oi -> new OrderDetailsItemResponse(
+                        oi.getProductId(),
+                        oi.getProductName(),
+                        oi.getQuantity(),
+                        oi.getPrice()))
+                .toList();
+        return new OrderDetailsResponse(
+                order.getId(),
+                order.getCreatedAt(),
+                order.getStatus().name(),
+                order.getTotalAmount(),
+                order.getCartId(),
+                items);
     }
 }
